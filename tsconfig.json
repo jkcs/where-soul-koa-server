@@ -1,16 +1,22 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es2017",
+    "target": "es2018",
     "noImplicitAny": true,
     "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "watch": true,
     "sourceMap": true,
-    "outDir": "dist",  // TS文件编译后会放入到此文件夹内
+    "allowSyntheticDefaultImports": true,
+    "outDir": "dist",
     "baseUrl": ".",
     "paths": {
       "*": [
         "node_modules/*"
       ]
-    }
+    },
+    "lib": [
+      "es2015"
+    ]
   }
 }
