@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon  -e  ts,tsx  --exec ts-node  bin/www.ts",
     "debugger": "nodemon  -e  ts,tsx  --exec node --inspect -r ts-node/register bin/www.ts",
-    "prd": "pm2 start bin/www.ts",
+    "prd": "pm2 start dist/bin/www.js",
     "start": "ts-node bin/www.ts",
     "build": "tsc"
   },
