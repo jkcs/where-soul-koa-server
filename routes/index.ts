@@ -1,7 +1,7 @@
 const routerIndex = require('koa-router')()
 
 routerIndex.get('/', async (ctx: { render: (arg0: string, arg1: { title: string; }) => void; }, next: any) => {
-  await ctx.render('index.ts', {
+  await ctx.render('index.pug', {
     title: 'Hello Koa 2!'
   })
 })
