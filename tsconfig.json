@@ -5,7 +5,6 @@
     "noImplicitAny": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "watch": true,
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "outDir": "dist",
