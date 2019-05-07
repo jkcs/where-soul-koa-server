@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon  -e  ts,tsx  --exec ts-node  bin/www.ts",
     "debugger": "nodemon  -e  ts,tsx  --exec node --inspect -r ts-node/register bin/www.ts",
-    "prd": " pm2 stop api && pm2 start dist/bin/www.js --name='api'",
+    "prd": " pm2 stop where-soul-server && pm2 start dist/bin/www.js --name='where-soul-server'",
     "start": "ts-node bin/www.ts",
     "build": "tsc"
   },
