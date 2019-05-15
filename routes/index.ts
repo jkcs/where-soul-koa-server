@@ -1,19 +1,15 @@
-const routerIndex = require('koa-router')()
+const compose = require('koa-compose')
+const glob = require('glob')
+const { resolve } = require('path')
 
-routerIndex.get('/', async (ctx: { render: (arg0: string, arg1: { title: string; }) => void; }, next: any) => {
-  await ctx.render('index.pug', {
-    title: 'Hello Koa 2!'
-  })
-})
-
-routerIndex.get('/string', async (ctx: { body: string; }, next: any) => {
-  ctx.body = 'koa2 string'
-})
-
-routerIndex.get('/json', async (ctx: { body: { title: string; }; }, next: any) => {
-  ctx.body = {
-    title: 'koa2 json'
-  }
-})
-
-module.exports = routerIndex
+module.exports = (() => {
+  let routers: any[] = []
+  glob.sync(resolve(__dirname, './**/*.ts'))
+    .filter((item: any) => !/index\./.test(item))
+    .forEach((router: any) => {
+      require(router).prefix('/api')
+      routers.push(require(router).routes())
+      routers.push(require(router).allowedMethods())
+    })
+  return compose(routers)
+})()

@@ -1,3 +1,4 @@
+// const test = require('./routes/test')
 const path = require('path')
 const Koa = require('koa')
 const koa = new Koa()
@@ -7,12 +8,13 @@ const koaOnerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 
-const index = require('./routes')
-const users = require('./routes/users')
-const test = require('./routes/test')
+const routes = require('./routes')
+const filter = require('./src/filter')
 
 // error handler
 koaOnerror(koa)
+
+koa.use(filter)
 
 // middlewares
 koa.use(bodyparser({
@@ -35,13 +37,10 @@ koa.use(async (ctx: { method: any; url: any; }, next: () => void) => {
 })
 
 // routes
-koa.use(index.routes(), index.allowedMethods())
-koa.use(users.routes(), users.allowedMethods())
-koa.use(test.routes(), test.allowedMethods())
+koa.use(routes)
 
 // error-handling
 koa.on('error', (err: any, ctx: any) => {
   console.error('server error', err, ctx)
 })
-
 module.exports = koa
