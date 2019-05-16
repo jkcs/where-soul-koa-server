@@ -4,12 +4,12 @@ import User from '../entity/User'
 
 export default class UserDao {
   static async getUserById (id: bigint) {
-    let result: any = await query('SELECT ID,USERNAME,GENDER,PHONE,HEADER,GMT_CREATE_TIME,GMT_UPDATE_TIME FROM USERS WHERE ID = ?', [id])
+    let result: any = await query('SELECT ID,USERNAME,GENDER,PHONE,HEADER,GMT_CREATE_TIME,GMT_UPDATE_TIME FROM users WHERE ID = ?', [id])
     return isEmpty(result) ? '' : result[0]
   }
 
   static async getUserByUsernameAndPassword (username: string, password: string) {
-    let result: any = await query('SELECT ID FROM USERS WHERE USERNAME = ? AND PASSWORD = ?', [username, password])
+    let result: any = await query('SELECT ID FROM users WHERE USERNAME = ? AND PASSWORD = ?', [username, password])
     return isEmpty(result) ? '' : result[0]
   }
 
@@ -23,7 +23,7 @@ export default class UserDao {
       user.gmtCreateTime,
       user.gmtUpdateTime
     ]
-    let result: any = await query('INSERT INTO USERS(USERNAME, PASSWORD, PHONE, HEADER, GENDER, GMT_CREATE_TIME, GMT_UPDATE_TIME) VALUES (?, ?, ?, ?, ?, ?, ?)', arr)
+    let result: any = await query('INSERT INTO users(USERNAME, PASSWORD, PHONE, HEADER, GENDER, GMT_CREATE_TIME, GMT_UPDATE_TIME) VALUES (?, ?, ?, ?, ?, ?, ?)', arr)
 
     return isEmpty(result) ? '' : result
   }
