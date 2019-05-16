@@ -4,7 +4,7 @@ const { resolve } = require('path')
 
 module.exports = (() => {
   let routers: any[] = []
-  glob.sync(resolve(__dirname, './**/*.*'))
+  glob.sync(resolve(__dirname, './**/*.{js,ts}'))
     .filter((item: any) => !/index\./.test(item))
     .forEach((router: any) => {
       require(router).prefix('/api')
