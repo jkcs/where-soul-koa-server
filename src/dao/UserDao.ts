@@ -1,4 +1,4 @@
-import { query } from '../utils/jdbcUtils'
+import query from '../utils/jdbcUtils'
 import { isEmpty } from '../utils/ObjectUtils'
 import User from '../entity/User'
 

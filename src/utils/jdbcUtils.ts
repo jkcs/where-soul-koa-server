@@ -1,27 +1,41 @@
-const jdbcUtils = require('mysql')
+const jdbcUtils: any = require('mysql')
 // 创建 mysql 连接池资源
 
-const pool = jdbcUtils.createPool({
+const pool: any = jdbcUtils.createPool({
   host: 'localhost',
   user: 'root',
   password: '123456',
   database: 'where_soul'
 })
 
-export const query = function (sql: string, arr: any) {
-  return new Promise((resolve, reject) => {
-    pool.getConnection(function (err: any, connection: { query: { (arg0: any, arg1: any, arg2: (error: any, results: any, fields: any) => void): void; (arg0: any, arg1: (error: any, results: any, fields: any) => void): void; }; release: { (): void; (): void; }; }) {
+function query (sql: string): Promise<any>;
+function query (sql: string, arr?: Array<any>): Promise<any>;
+function query (sql: string, arr?: Array<any>): Promise<any> {
+  return new Promise<any>((resolve, reject) => {
+    pool.getConnection((err: any, connection: any) => {
       if (err) {
         reject(err)
+        return
       }
-      // 三个参数时
-      connection.query(sql, arr, function (error, results, fields) {
-        connection.release()
-        if (error) {
-          reject(error)
-        }
-        resolve(results)
-      })
+      if (arr) {
+        connection.query(sql, arr, function (error: any, results: any) {
+          connection.release()
+          if (error) {
+            reject(error)
+          }
+          resolve(results)
+        })
+      } else {
+        connection.query(sql, function (error: any, results: any) {
+          connection.release()
+          if (error) {
+            reject(error)
+          }
+          resolve(results)
+        })
+      }
     })
   })
 }
+
+export default query

@@ -1,6 +1,15 @@
 import BaseEntity from './BaseEntity'
 
-export default class User extends BaseEntity {
+interface UserInterface {
+  id: bigint
+  username: string
+  password: string
+  phone: string
+  header: string
+  gender: string
+}
+
+export default class User extends BaseEntity implements UserInterface {
   constructor ({ id, username, password, phone, header, gender }:any = {}) {
     super()
     this._id = id
