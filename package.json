@@ -21,9 +21,11 @@
     "koa-router": "^7.1.1",
     "koa-static": "^3.0.0",
     "koa-views": "^5.2.1",
+    "lodash": "4.17.13",
     "moment": "^2.24.0",
     "mysql": "^2.17.1",
-    "pug": "^2.0.0-rc.1"
+    "pug": "^2.0.0-rc.1",
+    "uglify-js": "2.6.0"
   },
   "devDependencies": {
     "@types/koa-router": "^7.0.40",
