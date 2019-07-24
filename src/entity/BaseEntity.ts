@@ -1,20 +1,20 @@
 export default class BaseEntity {
-  private _gmtCreateTime: (string)
-  private _gmtUpdateTime: (string)
+  private _createTime: string;
+  private _updateTime: string;
 
-  get gmtCreateTime (): string {
-    return this._gmtCreateTime
+  get createTime (): string {
+    return this._createTime
   }
 
-  set gmtCreateTime (value: string) {
-    this._gmtCreateTime = value
+  set createTime (value: string) {
+    this._createTime = value
   }
 
-  get gmtUpdateTime (): string {
-    return this._gmtUpdateTime
+  get updateTime (): string {
+    return this._updateTime
   }
 
-  set gmtUpdateTime (value: string) {
-    this._gmtUpdateTime = value
+  set updateTime (value: string) {
+    this._updateTime = value
   }
 }

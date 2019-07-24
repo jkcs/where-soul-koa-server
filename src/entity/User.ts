@@ -1,37 +1,18 @@
 import BaseEntity from './BaseEntity'
 
-interface UserInterface {
-  id: bigint
-  username: string
-  password: string
-  phone: string
-  header: string
-  gender: string
-}
-
-export default class User extends BaseEntity implements UserInterface {
-  constructor ({ id, username, password, phone, header, gender }:any = {}) {
-    super()
-    this._id = id
-    this._username = username
-    this._password = password
-    this._phone = phone
-    this._header = header
-    this._gender = gender
-  }
-
-  private _id: bigint
+export default class User extends BaseEntity {
+  private _id: number
   private _username: string
   private _password: string
   private _phone: string
-  private _header: string
-  private _gender: string
+  private _avatar: string
+  private _gender: number
 
-  get id (): bigint {
+  get id (): number {
     return this._id
   }
 
-  set id (value: bigint) {
+  set id (value: number) {
     this._id = value
   }
 
@@ -59,19 +40,19 @@ export default class User extends BaseEntity implements UserInterface {
     this._phone = value
   }
 
-  get header (): string {
-    return this._header
+  get avatar (): string {
+    return this._avatar
   }
 
-  set header (value: string) {
-    this._header = value
+  set avatar (value: string) {
+    this._avatar = value
   }
 
-  get gender (): string {
+  get gender (): number {
     return this._gender
   }
 
-  set gender (value: string) {
+  set gender (value: number) {
     this._gender = value
   }
 }

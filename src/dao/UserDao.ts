@@ -3,8 +3,8 @@ import { isEmpty } from '../utils/ObjectUtils'
 import User from '../entity/User'
 
 export default class UserDao {
-  static async getUserById (id: bigint) {
-    let result: any = await query('SELECT ID,USERNAME,GENDER,PHONE,HEADER,GMT_CREATE_TIME,GMT_UPDATE_TIME FROM users WHERE ID = ?', [id])
+  static async getUserById (id: number) {
+    let result: any = await query('SELECT ID,USERNAME,GENDER,PHONE,AVATAR_ID,CREATE_TIME,UPDATE_TIME FROM users WHERE ID = ?', [id])
     return isEmpty(result) ? '' : result[0]
   }
 
@@ -18,12 +18,12 @@ export default class UserDao {
       user.username,
       user.password,
       user.phone,
-      user.header,
+      user.avatar,
       user.gender,
-      user.gmtCreateTime,
-      user.gmtUpdateTime
+      user.createTime,
+      user.updateTime
     ]
-    let result: any = await query('INSERT INTO users(USERNAME, PASSWORD, PHONE, HEADER, GENDER, GMT_CREATE_TIME, GMT_UPDATE_TIME) VALUES (?, ?, ?, ?, ?, ?, ?)', arr)
+    let result: any = await query('INSERT INTO users(USERNAME, PASSWORD, PHONE, AVATAR_ID, GENDER, CREATE_TIME, UPDATE_TIME) VALUES (?, ?, ?, ?, ?, ?, ?)', arr)
 
     return isEmpty(result) ? '' : result
   }
