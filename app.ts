@@ -1,3 +1,5 @@
+import { test } from './src/core/decorator/component'
+new test()
 // const test = require('./routes/test')
 // const path = require('path')
 const Koa = require('koa')

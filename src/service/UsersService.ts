@@ -4,7 +4,7 @@ let moment = require('moment')
 
 export default class UsersService {
   public static getUserById (id: bigint) {
-    return UserDao.getUserById(id)
+    // return UserDao.getUserById(id)
   }
 
   public static login (username: string, password: string) {
@@ -12,8 +12,8 @@ export default class UsersService {
   }
 
   public static register (user: User) {
-    user.phone = user.username
-    user.gmtCreateTime = user.gmtUpdateTime = moment().format('YYYY-MM-DD HH:mm:ss')
+    // user.phone = user.username
+    // user.gmtCreateTime = user.gmtUpdateTime = moment().format('YYYY-MM-DD HH:mm:ss')
     return UserDao.save(user)
   }
 }
