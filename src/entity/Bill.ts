@@ -2,7 +2,9 @@ import BaseEntity from './BaseEntity'
 import User from './User'
 import BillTag from './BillTag'
 import BillType from './BillType'
+import { Component } from '../../core/decorator/ContainerDecorator'
 
+@Component
 export default class Bill extends BaseEntity {
   private _id: number
   private _user: User

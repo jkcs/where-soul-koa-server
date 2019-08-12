@@ -1,7 +1,9 @@
 import query from '../utils/jdbcUtils'
 import { isEmpty } from '../utils/ObjectUtils'
 import User from '../entity/User'
+import { Component } from '../../core/decorator/ContainerDecorator'
 
+@Component
 export default class UserDao {
   static async getUserById (id: number) {
     let result: any = await query('SELECT ID,USERNAME,GENDER,PHONE,AVATAR_ID,CREATE_TIME,UPDATE_TIME FROM users WHERE ID = ?', [id])

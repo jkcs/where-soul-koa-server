@@ -44,3 +44,7 @@ export const isEmptyObject = (obj: Object): boolean => {
 export const _toString = (arg: any): string => {
   return Object.prototype.toString.call(arg).slice(8, -1)
 }
+
+export const isObject = (arg: any): boolean => {
+  return _toString(arg) === typeObj.Object
+}
