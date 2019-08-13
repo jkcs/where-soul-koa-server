@@ -1,7 +1,7 @@
-import Manager from './core/model/Manager'
-import { ControllerConstant } from './core/decorator/ControllerDecorator'
-const manager = new Manager(__dirname)
-manager.init()
+// import Manager from './core/model/manager/Manager'
+// import ControllerContainer from './core/model/container/ControllerContainer'
+// const manager = new Manager(__dirname)
+// Manager.init()
 
 // const test = require('./routes/test')
 // const path = require('path')
@@ -13,8 +13,8 @@ const koaOnerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 
-// const routes = require('./routes')
-const routes = ControllerConstant.exportRouter()
+const routes = require('./routes')
+// const routes = ControllerContainer.exportRouter()
 const filter = require('./src/filter')
 
 // error handler

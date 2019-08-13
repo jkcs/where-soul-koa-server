@@ -1,13 +1,12 @@
-export default class Container {
-  // static container:Container
-  public static readonly _instance: Container = new Container()
+/**
+ * bean容器
+ */
+export default class BeanContainer {
+  public static readonly _instance: BeanContainer = new BeanContainer()
   map: any = new Map()
-  // constructor () {
-  //   this.map = new Map()
-  // }
 
-  public static get Instance (): Container {
-    return Container._instance
+  public static get Instance (): BeanContainer {
+    return BeanContainer._instance
   }
 
   createBean<T> (className: string, source: T): any {
@@ -25,5 +24,13 @@ export default class Container {
 
   getBean<T> (className: string): T {
     return this.map.get(className)
+  }
+
+  toString (): string {
+    let tmp: string[] = []
+    for (let [key, value] of this.map.entries()) {
+      tmp.push(`[${key}, ${value}]`)
+    }
+    return tmp.join(',')
   }
 }

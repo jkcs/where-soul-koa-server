@@ -1,16 +1,17 @@
-// 包管理
-import { Value } from '../decorator/YamlDecorator'
-import Manager from './Manager'
+import { Value } from '../../decorator/YamlDecorator'
+import { Manger } from '../../decorator/ContainerDecorator'
 const glob = require('glob')
 const { resolve } = require('path')
 
+// 包管理
+@Manger
 export default class PackageManage {
   @Value('package.scan')
   scanPackage: string
 
   // 初始化扫描
-  public initScan () {
-    let pattern = resolve(Manager.resourcesDir, this.scanPackage, './**/*.{js,ts}')
+  public initScan (rootDir: string) {
+    let pattern = resolve(rootDir, this.scanPackage, './**/*.{js,ts}')
     glob.sync(pattern)
       .forEach((item: any) => {
         require(item)

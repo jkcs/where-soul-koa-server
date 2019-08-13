@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "nodemon  -e  ts,tsx  --exec ts-node  bin/www.ts",
     "debugger": "nodemon  -e  ts,tsx  --exec node --inspect -r ts-node/register bin/www.ts",
+    "debuggerRun": "nodemon  -e  ts,tsx  --exec node --inspect -r ts-node/register appRun.ts",
     "prd": "pm2 restart dist/bin/www.js --name=where-soul-server",
     "pstart": "pm2 start dist/bin/www.js --name=where-soul-server",
     "start": "ts-node bin/www.ts",
+    "startRun": "ts-node appRun.ts",
     "build": "tsc"
   },
   "dependencies": {

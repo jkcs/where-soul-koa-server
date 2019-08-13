@@ -1,10 +1,21 @@
-import { Controller, Get, RequestMapping } from '../../core/decorator/ControllerDecorator'
+import { Controller, Get, Post, RequestMapping } from '../../core/decorator/ControllerDecorator'
 
 @Controller
-@RequestMapping('/test')
+@RequestMapping('')
 export default class TestController {
-  @Get('/test')
+  @Get('/get')
   public getSome (ctx:any) {
     console.log(12313)
+    ctx.body = {
+      msg: '测试'
+    }
+  }
+
+  @Post('/post')
+  public postSome (ctx:any) {
+    console.log(12313)
+    ctx.body = {
+      msg: '测试'
+    }
   }
 }

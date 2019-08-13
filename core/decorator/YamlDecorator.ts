@@ -1,4 +1,4 @@
-import YamlParse from '../model/YamlParse'
+import YamlParse from '../model/parse/YamlParse'
 // import 'reflect-metadata'
 
 export function Value (param: string) {
