@@ -8,7 +8,7 @@
     "prd": "pm2 restart dist/app.js --name=where-soul-server",
     "pstart": "pm2 start dist/app.js --name=where-soul-server",
     "start": "ts-node app.ts",
-    "build": "tsc"
+    "build": "tsc && node ./config/copy.js"
   },
   "dependencies": {
     "debug": "^2.6.3",
