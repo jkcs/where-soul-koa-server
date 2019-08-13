@@ -9,7 +9,10 @@ export default class Manager {
   @AutoWired
   private packageManage: PackageManage
 
+  public rootDir: string
+
   public init (rootDir: string): void {
+    this.rootDir = rootDir
     this.packageManage.initScan(rootDir)
   }
 }
