@@ -1,7 +1,7 @@
 ## where-soul-koa-server
 ### where-soul 的 koa 服务
 
-> 
+> 实现了类 spring 注解： @Component @Service @AutoWired @Controller @RequestMapping @Value ...
 
 ```
 npm run dev
