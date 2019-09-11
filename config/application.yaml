@@ -1,13 +1,12 @@
 koa:
-  port: 9000
+  port: 9001
   prefix: "/api"
 
 db:
-  url: "http://localhost:3306"
+  host: "localhost:3306"
   database: "where_soul"
   username: "root"
   password: "123456"
 
 package:
   scan: "src"
-  router: "routers"

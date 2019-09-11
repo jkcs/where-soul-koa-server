@@ -1,8 +1,7 @@
 import ApplicationRunner from './core/model/runner/ApplicationRunner'
-import BeanContainer from './core/model/container/BeanContainer'
+import Log from './core/model/log/Log'
 
 ApplicationRunner.run({
   rootDir: __dirname
 })
-
-console.log(BeanContainer.Instance.toString())
+Log.i('app run successful!')

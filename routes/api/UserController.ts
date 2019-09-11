@@ -1,4 +1,4 @@
-import UserService from '../../src/service/UsersService'
+import UserService from '../../src/service/UserService'
 import Result from '../../src/utils/Result'
 import { isEmpty } from '../../src/utils/ObjectUtils'
 import User from '../../src/entity/User'

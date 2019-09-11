@@ -2,15 +2,16 @@ import { Value } from '../../decorator/YamlDecorator'
 import { Component } from '../../decorator/ContainerDecorator'
 import ControllerContainer from '../container/ControllerContainer'
 import filter from '../../../src/filter'
+import Log from '../log/Log'
 const Koa = require('koa')
 // Middleware
 const json = require('koa-json')
 const koaOnerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
-const logger = require('koa-logger')
+// const logger = require('koa-logger')
 
 const http = require('http')
-const debug = require('debug')('demo:server')
+// const debug = require('debug')('demo:server')
 
 @Component
 export default class KoaServer {
@@ -49,7 +50,7 @@ export default class KoaServer {
       enableTypes: ['json', 'form', 'text']
     }))
     this.koa.use(json())
-    this.koa.use(logger())
+    // this.koa.use(logger())
     this.handleKoaLogger()
     this.handleKoaError()
   }
@@ -60,13 +61,13 @@ export default class KoaServer {
       const start = new Date().getTime()
       await next()
       const ms = new Date().getTime() - start
-      console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
+      Log.i(`${ctx.method} ${ctx.url} - ${ms}ms`)
     })
   }
 
   private handleKoaError (): void {
     this.koa.on('error', (err: any, ctx: any) => {
-      console.error('server error', err, ctx)
+      Log.e('server error', err, ctx)
     })
   }
 
@@ -81,10 +82,10 @@ export default class KoaServer {
 
       // handle specific listen errors with friendly messages
       if (error.code === 'EACCES') {
-        console.error(bind + ' requires elevated privileges')
+        Log.e(bind + ' requires elevated privileges')
         process.exit(1)
       } else if (error.code === 'EADDRINUSE') {
-        console.error(bind + ' is already in use')
+        Log.e(bind + ' is already in use')
         return process.exit(1)
       } else {
         throw error
@@ -97,7 +98,7 @@ export default class KoaServer {
       const bind = typeof addr === 'string'
         ? 'pipe ' + addr
         : 'port ' + addr.port
-      debug('Listening on ' + bind)
+      Log.i('Listening on ' + bind)
     })
   }
 }

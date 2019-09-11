@@ -22,7 +22,7 @@ export function Get (url: string) {
     // 保存原函数
     let fn: any = descriptor.value
     let router: any = ControllerContainer.getRouter(target.constructor.name)
-    router.get(url, fn)
+    router.get(url, fn.bind(target))
   }
 }
 
@@ -31,7 +31,7 @@ export function Post (url: string) {
     // 保存原函数
     let fn: any = descriptor.value
     let router: any = ControllerContainer.getRouter(target.constructor.name)
-    router.post(url, fn)
+    router.post(url, fn.bind(target))
   }
 }
 
@@ -40,7 +40,7 @@ export function Put (url: string) {
     // 保存原函数
     let fn: any = descriptor.value
     let router: any = ControllerContainer.getRouter(target.constructor.name)
-    router.put(url, fn)
+    router.put(url, fn.bind(target))
   }
 }
 
@@ -49,6 +49,6 @@ export function Delete (url: string) {
     // 保存原函数
     let fn: any = descriptor.value
     let router: any = ControllerContainer.getRouter(target.constructor.name)
-    router.delete(url, fn)
+    router.delete(url, fn.bind(target))
   }
 }
