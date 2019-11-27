@@ -1,6 +1,6 @@
 import { Component } from '../../core/decorator/ContainerDecorator'
 import { Value } from '../../core/decorator/YamlDecorator'
-import Log from "../../core/model/log/Log"
+import Log from '../../core/model/log/Log'
 
 const mysqlUtils: any = require('mysql')
 
@@ -69,5 +69,64 @@ export default class JDBCActuator {
         }
       })
     })
+  }
+
+  public transaction (exeList: []) {
+    // return new Promise((resolve, reject) => {
+    //   this.pool.getConnection((err: any, connection: any) => {
+    //     connection.beginTransaction(function (err: any) {
+    //       if (err) { reject(err) }
+    //       exeList.forEach((item: any, index: number) => {
+    //         connection.query(item.sql, item.attr, function (err: any, results: any, fields: any) {
+    //           if (err) {
+    //             return connection.rollback(function () {
+    //               reject(err)
+    //               throw err
+    //             })
+    //           }
+    //           if (index === exeList.length - 1) {
+    //             connection.commit(function (err: any) {
+    //               if (err) {
+    //                 return connection.rollback(function () {
+    //                   reject(err)
+    //                   throw err
+    //                 })
+    //               }
+    //               resolve()
+    //             })
+    //           }
+    //         })
+    //       })
+    //     }
+    //   }
+    // })
+    // connection.beginTransaction(function (err) {
+    //   if (err) { throw err }
+    //   connection.query('INSERT INTO posts SET title=?', title, function (error, results, fields) {
+    //     if (error) {
+    //       return connection.rollback(function () {
+    //         throw error
+    //       })
+    //     }
+    //
+    //     var log = 'Post ' + results.insertId + ' added'
+    //
+    //     connection.query('INSERT INTO log SET data=?', log, function (error, results, fields) {
+    //       if (error) {
+    //         return connection.rollback(function () {
+    //           throw error
+    //         })
+    //       }
+    //       connection.commit(function (err) {
+    //         if (err) {
+    //           return connection.rollback(function () {
+    //             throw err
+    //           })
+    //         }
+    //         console.log('success!')
+    //       })
+    //     })
+    //   })
+    // })
   }
 }

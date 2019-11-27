@@ -1,5 +1,5 @@
 import UsersDao from '../dao/UserDao'
-import User from '../entity/User'
+import Users from '../entity/Users'
 import { AutoWired, Service } from '../../core/decorator/ContainerDecorator'
 let moment = require('moment')
 
@@ -16,7 +16,7 @@ export default class UserService {
     return (this as any).userDao.getUserByUsernameAndPassword(username, password)
   }
 
-  register (user: User) {
+  register (user: Users) {
     // user.phone = user.username
     // user.gmtCreateTime = user.gmtUpdateTime = moment().format('YYYY-MM-DD HH:mm:ss')
     return (this as any).userDao.save(user)

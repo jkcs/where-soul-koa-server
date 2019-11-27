@@ -1,12 +1,13 @@
 import BaseEntity from './BaseEntity'
 
-export default class User extends BaseEntity {
+export default class Users extends BaseEntity {
   private _id: number
   private _username: string
   private _password: string
-  private _phone: string
-  private _avatar: string
+  private _avatarId: number
   private _gender: number
+  private _loginName: string
+  private _usersSecurityId: string
 
   get id (): number {
     return this._id
@@ -32,20 +33,12 @@ export default class User extends BaseEntity {
     this._password = value
   }
 
-  get phone (): string {
-    return this._phone
+  get avatarId (): number {
+    return this._avatarId
   }
 
-  set phone (value: string) {
-    this._phone = value
-  }
-
-  get avatar (): string {
-    return this._avatar
-  }
-
-  set avatar (value: string) {
-    this._avatar = value
+  set avatarId (value: number) {
+    this._avatarId = value
   }
 
   get gender (): number {
@@ -54,5 +47,21 @@ export default class User extends BaseEntity {
 
   set gender (value: number) {
     this._gender = value
+  }
+
+  get loginName (): string {
+    return this._loginName
+  }
+
+  set loginName (value: string) {
+    this._loginName = value
+  }
+
+  get usersSecurityId (): string {
+    return this._usersSecurityId
+  }
+
+  set usersSecurityId (value: string) {
+    this._usersSecurityId = value
   }
 }

@@ -28,6 +28,7 @@ module.exports = {
     ],
     // 类和接口的命名必须遵守帕斯卡命名法，比如 PersianCat
     'typescript/class-name-casing': 'error',
-    "no-unused-vars": 'off'
+    'no-unused-vars': 'off',
+    'disable-next-line': 'camelcase'
   }
 }
