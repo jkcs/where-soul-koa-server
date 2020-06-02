@@ -1,5 +1,5 @@
 import BaseEntity from './BaseEntity'
-import User from './User'
+import User from './Users'
 import BillTag from './BillTag'
 import BillType from './BillType'
 import { Component } from '../../core/decorator/ContainerDecorator'
