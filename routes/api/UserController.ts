@@ -1,7 +1,7 @@
 import UserService from '../../src/service/UserService'
 import Result from '../../src/utils/Result'
 import { isEmpty } from '../../src/utils/ObjectUtils'
-import User from '../../src/entity/User'
+import User from '../../src/entity/Users'
 
 const routerUsers = require('koa-router')()
 
